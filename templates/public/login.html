@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{%- block styles %}
+ {{super()}}
+    <style>
+   .media .avatar {
+    width: 64px;
+}
+
+.shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+
+.basic-textarea textarea {
+    height: auto;
+}
+
+.rounded-corners textarea {
+    border-radius: 0.25rem;
+}
+    </style>
+{%- endblock styles %}
+  {% block content -%}
+
+{%- endblock content %}
