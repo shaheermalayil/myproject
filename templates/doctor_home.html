@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <style>
+       body{
+            background-color:dodgerblue;
+            }
+       table{
+       border: 1px solid black;
+        align:center;
+        padding :30px;
+       background-color: #f1f1c1;
+            }
+       input{
+              border-color:green;
+            }
+    </style>
+</head>
+<body>
+
+<center>
+    <h2>Recent Questions</h2>
+<form>
+    <table>
+        {% for i in data %}
+        <tr>
+            <td>
+                {{i.question}}
+
+            </td>
+            <td>
+                <a href="/replay?id={{i.q_id}}"><input type="button" value="Replay" name="replay"></input> </a>
+
+            </td>
+
+
+        </tr>
+
+        {% endfor %}
+    </table>
+    </form>
+
+
+
+
+</center>
+
+</body>
+</html>

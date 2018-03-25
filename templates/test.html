@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+{%- block styles %}
+ {{super()}}
+    <style>
+    .navbar {
+    background-color: transparent;
+    }
+    .top-nav-collapse {
+    background-color: #4285F4;
+    }
+    @media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+    }
+     body {
+        background:url("static/img/images/home.jpg")no-repeat center center;
+        background-size: cover;
+    }
+    </style>
+{%- endblock styles %}
+  {% block content -%}
+   <html lang="en" class="full-height"/>
+<!--Main Navigation-->
+<!--Main Navigation-->
+<!--Main Layout-->
+<!--Section: Blog v.1-->
+<!--/.Card-->
+<!--Section: Blog v.1-->
+<hr class="my-5">
+
+<div class="containter">
+    <div class="row justify-content-md-center">
+
+      <div class="col-lg-4 col-xl-4 pb-3"><!--Card-->
+
+        <!--Title-->
+
+<!-- Default form login -->
+
+<!-- Default form register -->
+<div class="modal-dialog cascading-modal" role="document">
+
+                    <!--Content-->
+                    <div class="modal-content">
+
+                        <!--Header-->
+                        <div class="modal-header primary-color white-text">
+                            <h4 class="title">
+                                <i class="fa fa-pencil-alt"></i> Doctor Registration</h4>
+
+                        </div>
+                        <from>
+                        <div class="modal-body">
+
+                            <!-- Material input name -->
+                            <div class="md-form form-sm">
+                                <i class="fa fa-envelope prefix"></i>
+                                <input type="text" id="materialFormNameModalEx" class="form-control form-control-sm">
+                                <label for="materialFormNameModalEx">Your name</label>
+                            </div>
+
+                            <!-- Material input email -->
+                            <div class="md-form form-sm">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="materialFormEmailModalEx" class="form-control form-control-sm">
+                                <label for="materialFormEmailModalEx">Your email</label>
+                            </div>
+
+                            <!-- Material input subject -->
+                            <div class="md-form form-sm">
+                                <i class="fa fa-tag prefix"></i>
+                                <input type="text" id="materialFormSubjectModalEx" class="form-control form-control-sm">
+                                <label for="materialFormSubjectModalEx">Subject</label>
+                            </div>
+
+                            <!-- Material textarea message -->
+                            <div class="md-form form-sm">
+                                <i class="fa fa-pencil-alt prefix"></i>
+                                <textarea type="text" id="materialFormMessageModalEx" class="md-textarea form-control"></textarea>
+                                <label for="materialFormMessageModalEx">Your message</label>
+                            </div>
+
+                            <div class="text-center mt-4 mb-2">
+                                <button class="btn btn-primary">Send
+                                    <i class="fa fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </from>
+                    </div>
+                    <!--/.Content-->
+                </div>
+<!-- Default form register -->
+<!-- Default form login -->
+<!--/.Card-->
+    </div>
+</div>
+</div>
+{%- endblock content %}

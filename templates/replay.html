@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prescription</title>
+    <style>
+      body{
+            background-color:dodgerblue;
+            }
+       table{
+       border: 1px solid black;
+        align:center;
+        padding :30px;
+       background-color: #f1f1c1;
+            }
+       input{
+              border-color:green;
+            }
+    </style>
+</head>
+<body>
+<center> <h1>Welcome {{session['username']}}</h1><br><br>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td>
+        <label>Give prescription :</label>
+                </td>
+                <td>
+        <textarea cols="70" rows="7" name="replay">
+        </textarea>
+                </td>
+            </tr>
+            <tr align="center">
+                     <td>
+                </td>
+                <td>
+                    <input type="submit" value="Give Prescription" name="submit">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>
