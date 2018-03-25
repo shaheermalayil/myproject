@@ -9,11 +9,11 @@ cur = cnx.cursor(dictionary=True)
 
 @app.route('/')
 def home():
-    return render_template('test.html')
+    return render_template('public/index.html')
 
 @app.route('/login')
 def log():
-    return render_template('public/loginform.html')
+    return render_template('public/login.html')
 
 @app.route('/register')
 def register():
