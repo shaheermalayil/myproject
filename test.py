@@ -1,3 +1,4 @@
+
 import pickle
 dic={"fever":"disease","alergy":"symptom","paracetamol":"medicine"}
 file_name="testfile.dat"
