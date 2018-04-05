@@ -1,24 +1,14 @@
 import pickle
-
-def dcitUpdate(dic,file_name="testfile.dat"):
+def dict_update(dic,file_name="testfile.dat"):
     fileObject = open(file_name, 'r')
-    dictionary=pickle.load(fileObject)
-    print dictionary
-dic={"sdf":"sdf"}
-dcitUpdate(dic)
-# dic={"fever":"disease","alergy":"symptom","paracetamol":"medicine"}
-# file_name="testfile.dat"
-# fileObject=open(file_name,'wb')
-# pickle.dump(dic,fileObject)
-# fileObject.close()
-# fileObject=open(file_name,'r')
-# b=pickle.load(fileObject)
-# fileObject.close()
-# fileObject=open(file_name,'wb')
-# dic2={"fever":"disease","headache":"disease"}
-# dic.update(dic2)
-# pickle.dump(dic,fileObject)
-# fileObject.close()
-# fileObject=open(file_name,'r')
-# c=pickle.load(fileObject)
-# print c
+    dicti=pickle.load(fileObject)
+    fileObject.close()
+    fileObject=open(file_name,'wb')
+    dicti.update(dic)
+    pickle.dump(dicti,fileObject)
+    fileObject.close()
+def dict_read(file_name="testfile.dat"):
+    fileObject = open(file_name, 'r')
+    dict=pickle.load(fileObject)
+    fileObject.close()
+    return dict
