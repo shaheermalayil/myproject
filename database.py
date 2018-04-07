@@ -6,7 +6,9 @@ class QUERIES:
         self.cnx= mysql.connector.connect(user="root", password="", host="localhost", database="mydb")
         self.cur = self.cnx.cursor(dictionary=True)
 
-
+    def __del__(self):
+        self.cnx.close()
+        self.cur.close()
     def selection(self,q):
         a={}
         try:

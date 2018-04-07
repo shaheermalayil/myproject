@@ -5,7 +5,7 @@ from database import QUERIES
 from test import dict_read,dict_update
 import math
 dic=dict_read()
-
+print dic
 para="hi i am suffering from fever and headache"
 
 #entity extraction from text
@@ -57,7 +57,9 @@ def truthness(x):
          else:
              percent=float(len(inter))/len(uni)
          truth += float(dw)*percent
-         # print "expertise level'%s'" %truth
+         #if truthness less than minimal
+         if truth <0.1:
+             truth=0.1
      qr="update prescription set truthness='%s' where pres_id ='%s'" %(truth,pres_id)
      ob.updation(qr)
 
@@ -77,9 +79,39 @@ def expertise(doc_id):
     exp=math.log(prb)
     expert=abs(exp)
     expert_level=round(expert,4)
+    if expert_level<0.1:
+        expert_level=0.1
     # print expert_level
     qr="UPDATE doctor_reg set expert_level='%s' WHERE doc_id='%s'" %(expert_level,doc_id)
     ob.updation(qr)
 
+def info_extract(sr):
+    sentences = sent_tokenize(sr)
+    # print sentences
+    # word tokenizing
+    stopWords = set(stopwords.words('english'))
+    entities = []
+    out_entities = {}
+    for sentence in sentences:
+        print sentence
+        words = word_tokenize(sentence)
+        for word in words:
 
-    expertise(2)
+            if word not in stopWords:
+                print word
+                entities.append(word)
+
+    for entity in entities:
+        if entity in dic:
+            # print entity
+            val=dic.get(entity)
+            di={entity:val}
+            out_entities.update(di)
+            # print di
+
+    return out_entities
+q=info_extract("hai iam sufering from fever and headache")
+ans=info_extract("may be you have commoncold")
+dict_update(dic)
+print q
+print ans

@@ -1,5 +1,6 @@
 from database import QUERIES
 from flask import Flask,render_template,redirect,url_for,session,request
+from nlt import extract,expertise,truthness
 app = Flask(__name__)
 app.secret_key="slfghfghghfghghfgggj"
 ob = QUERIES()
@@ -92,7 +93,7 @@ def docreg():
     return render_template('doc_reg.html')
 @app.route('/doctor',methods=['POST','GET'])
 def doctor_home():
-    result=ob.selection("select * from questions")
+    result=ob.selection("SELECT * FROM questions WHERE q_id NOT IN (SELECT q_id FROM replayed WHERE doc_id='%s')" %session['log_id'] )
     if result['status']=="success":
         dt=result['data']
         return render_template('doctor_home.html',data=dt)
@@ -105,8 +106,15 @@ def replay():
         #
         # p_qid answer truthness u_rating doc_id
         print (id,replay,session['log_id'])
-        sts=ob.insertion("insert into prescription (p_qid,answer,truthness,u_rating,doc_id) values('%s','%s','100','4','%s')" %(id,replay,session['log_id']))
+        qr="insert into prescription (q_id,answer,doc_id) values('%s','%s','%s')" %(id,replay,session['log_id'])
+        print qr
+        sts=ob.insertion(qr)
         if sts['status']=="success":
+            pres=sts['data']
+            truthness(pres)
+            expertise(session['log_id'])
+            qr="insert into replayed (doc_id,q_id) values('%s','%s')" % (session['log_id'],id)
+            ob.insertion(qr)
             return redirect(url_for('doctor_home'))
         else:
             return "something went wrong"
