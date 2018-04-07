@@ -110,9 +110,8 @@ def info_extract(sr):
             # print di
 
     return out_entities
-q=info_extract("hai iam sufering from fever and headache")
-ans=info_extract("may be you have commoncold")
-dict_update(dic)
-print q
-print ans
-dgfdsfgsdfgsd
+# q=info_extract("hai iam sufering from fever and headache")
+# ans=info_extract("may be you have commoncold")
+# dict_update(dic)
+# print q
+# print ans
